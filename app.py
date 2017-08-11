@@ -44,28 +44,18 @@ with open("./settings.json", "r") as settings:
 
 if __name__ == "__main__":
     try:
-        for bot in data["bots"]:
-            i = Thread(
-                target=Bot(
-                    bot["username"],
-                    bot["password"],
-                    bot["server"],
-                    bot["admins"],
-                    bot["rooms"],
-                    bot["symbol"],
-                    bot["avatar"],
-                    string_to_plugin(bot["plugins"]),
-                    bot["log"]
-                ).connect,
-                args=()
-            )
-            i.daemon = True
-            bots.append(i.start())
-
-            while True: # so the script can exit with a keyboard interrupt.
-                time.sleep(1)
-
-
+        target=Bot(
+            bot["username"],
+            bot["password"],
+            bot["server"],
+            bot["admins"],
+            bot["rooms"],
+            bot["symbol"],
+            bot["avatar"],
+            string_to_plugin(bot["plugins"]),
+            bot["log"]
+        ).connect,
+        args=()
     except KeyboardInterrupt:
         bots = []
         sys.exit(1)
