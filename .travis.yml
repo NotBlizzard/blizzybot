@@ -1,0 +1,9 @@
+language: python
+python:
+    - "3.2"
+    - "3.3"
+    - "3.4"
+    - "3.5"
+
+install: 
+script: python tests/battle_tests.py && python tests/bot_tests.py
