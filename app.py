@@ -10,7 +10,7 @@ from importlib import import_module
 import traceback
 from threading import Thread
 
-# import class from each plugin
+# import class from each plugin.
 sys.path.append(os.path.abspath("./plugins"))
 for i in os.listdir("./plugins"):
     if i[-3:] == ".py":
